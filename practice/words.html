@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/12.6.0/firebase-app.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyCC0FbBPK4V7EMfkr0xty9Qc9Ck-cLu18s",
+            authDomain: "lingoflow-c169e.firebaseapp.com",
+            projectId: "lingoflow-c169e",
+            storageBucket: "lingoflow-c169e.firebasestorage.app",
+            messagingSenderId: "542175265484",
+            appId: "1:542175265484:web:2723ae3b6f2558f034b869"
+        };
+        const app = initializeApp(firebaseConfig);
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Word Practice — LingoFlow</title>
+    <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+  <div class="form-container3">
+    <p id="user-response"></p>
+    <h2>Select your level <span id="level-number"> </span></h2>
+    <div class="levels">
+      <button onclick="startLevel('A1')">A1</button>
+      <button onclick="startLevel('A2')">A2</button>
+      <button onclick="startLevel('B1')">B1</button>
+      <button onclick="startLevel('B2')">B2</button>
+      <button onclick="startLevel('C1')">C1</button>
+       <button onclick="startLevel('C2')">C2</button>
+    </div>
+  </div>
+   <p id="target-word" style="text-align: center; color: white; font-size: larger;"></p>
+  <p id="status-msg" style="text-align: center; color: white;font-size: larger;"></p> 
+  <p id="result-msg" style="text-align: center;font-size: larger;"></p>
+
+  <!-- Группа кнопок Listen и Record -->
+  <div class="button-group">
+    <button class="listen-btn" onclick="speakText(document.getElementById('target-word').textContent)">Listen</button>
+    <button class="record-btn" onclick="startRecording()">Record</button>
+  </div>
+
+  <a href="../profile.html" class="btn backtprof">Back to profile</a>
+  <a href="../practice.html" class="btn changemode">Change mode</a>
+
+  <!-- Загружаем данные и подключаем firebase.js -->
+  <script type="module">
+    import { currentUser } from "./../js/firebase.js";
+
+    // Загружаем данные один раз при запуске
+    window.lingoflowData = {};
+
+    Promise.all([
+      fetch("../data/words.json").then(res => res.json()),
+      fetch("../data/sentences.json").then(res => res.json())
+    ])
+    .then(data => {
+      const [words, sentences] = data;
+      window.lingoflowData.words = words;
+      window.lingoflowData.sentences = sentences;
+    })
+    .catch(err => {
+      console.error("Ошибка загрузки данных:", err);
+      alert("Ошибка загрузки данных. Проверьте, что файлы words.json и sentences.json находятся в папке data/");
+    });
+  </script>
+
+  <script src="../js/speech.js"></script>
+  <script src="../js/words.js"></script>
+</body>
+</html>

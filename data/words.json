@@ -1,0 +1,8 @@
+{
+  "A1": ["cat", "dog", "house", "book", "apple", "car", "tree", "water", "food", "friend", "school", "family", "city", "music", "phone"],
+  "A2": ["travel", "holiday", "market", "weather", "movie", "restaurant", "airport", "ticket", "hotel", "beach", "museum", "garden", "party", "bus", "shopping"],
+  "B1": ["education", "solution", "imagine", "prepare", "machine", "technology", "development", "community", "research", "culture", "process", "design", "project", "system", "analysis"],
+  "B2": ["responsibility", "opportunity", "investment", "strategy", "potential", "negotiation", "performance", "innovation", "management", "evaluation", "communication", "leadership", "marketing", "finance", "growth"],
+  "C1": ["sustainability", "collaboration", "distribution", "interpretation", "infrastructure", "philosophy", "psychology", "legislation", "architecture", "economics", "environment", "governance", "innovation", "negotiation", "analysis"],
+  "C2": ["metamorphosis", "epistemology", "juxtaposition", "paradigm", "heuristic", "dialectic", "phenomenology", "synecdoche", "anachronism", "antithesis", "catharsis", "dichotomy", "exegesis", "hermeneutics", "iconoclasm"]
+}
